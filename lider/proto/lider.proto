@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package lider;
+
+option go_package = "laboratorio2/lider-grpc;lider_grpc";
+
+message Peticion{
+    string peticion = 1;
+}
+
+message Confirmacion{
+    string confirmacion = 1;
+}
+
+message Jugada{
+    int32 jugada = 1;
+}
+
+message Estado{
+    string estado = 1;
+}
+
+message VerMonto{
+    string vermonto = 1;
+}
+
+message Monto{
+    int32 monto = 1;
+}
+
+service LiderManagement {
+    rpc Unirse(Peticion) returns (Confirmacion);
+    rpc Jugar(Jugada) returns (Estado);
+    rpc Premio(VerMonto) returns (Monto);
+}
